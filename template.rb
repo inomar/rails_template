@@ -1,7 +1,6 @@
 # rails5
 
 gem 'devise'
-gem 'mysql2'
 gem 'ridgepole'
 
 group :development, :test do
