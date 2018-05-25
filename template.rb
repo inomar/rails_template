@@ -44,13 +44,18 @@ generate 'rspec:install'
 ## binstubを使ってrspecの起動を早くする
 run 'bundle exec spring binstub rspec'
 
-create_file '.rspec', <<EOF, force: true
+file '.rspec', <<EOF, force: true
   --require spec_helper
   --format documentation
 EOF
 
+# db create
+run 'bin/rake db:create'
 
 # redgepole
+
+file 'db/schemas/Schemafile'
+
 rakefile('ridgepole.rake') do
   <<-TASK
     namespace :ridgepole do
@@ -59,13 +64,13 @@ rakefile('ridgepole.rake') do
         options = ['--apply']
         options << '--dry-run' if ENV['DRYRUN']
         options << '--verbose' if ENV['VERBOSE']
-        ridgepole(*options, "--file #{schema_file}")
+        ridgepole(*options, "--file \#{schema_file}")
       end
 
       desc 'Export database schema'
       task export: :environment do
         options = ['--export']
-        ridgepole(*options, "--split --output #{schema_file}" )
+        ridgepole(*options, "--split --output \#{schema_file}" )
       end
 
       private
@@ -79,12 +84,14 @@ rakefile('ridgepole.rake') do
       end
 
       def ridgepole(*options)
-        command = ['bundle exec ridgepole', "--config #{config_file} --env #{Rails.env}"]
+        command = ['bundle exec ridgepole', "--config \#{config_file} --env \#{Rails.env}"]
         system [command + options].join(' ')
       end
     end
   TASK
 end
+
+run 'bin/rake ridgepole:export'
 
 # devise
 generate 'devise:install'
