@@ -13,5 +13,5 @@
 -- mysql
 
 ```
-$ rails new app_name -d mysql -TB -m https://github.com/inomar/rails_template_with_devise/master/template.rb
+$ rails new app_name -d mysql -TB -m https://raw.github.com/inomar/rails_template_with_devise/master/template.rb
 ```
