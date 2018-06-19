@@ -38,6 +38,25 @@ remove_file 'config/locales/en.yml'
 run 'wget https://raw.github.com/svenfuchs/rails-i18n/master/rails/locale/en.yml -P config/locales/'
 run 'wget https://raw.github.com/svenfuchs/rails-i18n/master/rails/locale/ja.yml -P config/locales/'
 
+# config/application.rb
+application do
+  %q{
+    config.time_zone = 'Tokyo'
+    config.generators do |g|
+      g.test_framework :rspec, :fixture => true
+      g.fixture_replacement :factory_girl, :dir => "spec/factories"
+      g.view_specs false
+      g.controller_specs false
+      g.routing_specs false
+      g.helper_specs false
+      g.request_specs true
+      g.assets false
+      g.helper false
+    end
+    endbundle binstubs rspec-core
+  }
+end
+
 # rspec
 generate 'rspec:install'
 
