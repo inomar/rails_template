@@ -111,7 +111,5 @@ rakefile('ridgepole.rake') do
   TASK
 end
 
-run 'bin/rake ridgepole:export'
-
 # devise
 generate 'devise:install'
