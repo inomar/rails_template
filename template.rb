@@ -55,7 +55,7 @@ application do
       g.assets false
       g.helper false
     end
-    endbundle binstubs rspec-core
+    end
   }
 end
 
@@ -69,7 +69,7 @@ file '.rspec', <<EOF, force: true
   --require spec_helper
   --format documentation
 EOF
-
+run 'bundle binstubs rspec-coreÂ'
 # db create
 run 'bin/rake db:create'
 
