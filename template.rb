@@ -68,7 +68,7 @@ file '.rspec', <<EOF, force: true
   --require spec_helper
   --format documentation
 EOF
-run 'bundle binstubs rspec-core'
+#run 'bundle binstubs rspec-core'
 # db create
 run 'bin/rake db:create'
 
