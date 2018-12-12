@@ -59,7 +59,7 @@ application do
 end
 
 # rspec
-generate 'rspec:install'
+run 'bundle exec rspec:install'
 
 ## binstubを使ってrspecの起動を早くする
 run 'bundle exec spring binstub rspec'
