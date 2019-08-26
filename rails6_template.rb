@@ -87,4 +87,3 @@ rakefile('ridgepole.rake') do
 end
 
 run 'bin/rake ridgepole:export'
-'
