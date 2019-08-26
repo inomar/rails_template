@@ -26,7 +26,7 @@ gem_group :development do
 end
 
 # bundle install
-run 'bundle install --path vendor/bundle --jobs=4'
+run 'bundle install --jobs=4'
 
 # locales
 remove_file 'config/locales/en.yml'
