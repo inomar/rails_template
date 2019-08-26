@@ -6,7 +6,6 @@ gem_group :default do
 end
 
 gem_group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'license_finder'
@@ -14,9 +13,6 @@ end
 
 gem_group :development do
   gem 'web-console', '>= 4.0.1'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
   gem 'rubocop'
   gem 'brakeman'
